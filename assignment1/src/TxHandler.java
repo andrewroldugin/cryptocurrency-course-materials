@@ -6,7 +6,7 @@ public class TxHandler {
      * constructor.
      */
     public TxHandler(UTXOPool utxoPool) {
-        // IMPLEMENT THIS
+        pool = new UTXOPool(utxoPool);
     }
 
     /**
@@ -19,7 +19,10 @@ public class TxHandler {
      *     values; and false otherwise.
      */
     public boolean isValidTx(Transaction tx) {
-        // IMPLEMENT THIS
+        for (Transaction.Input in : tx.getInputs()) {
+            UTXO utxo = new UTXO(in.prevTxHash, in.outputIndex);
+            if (!pool.contains(utxo)) return false;
+        }
         return true;
     }
 
@@ -33,4 +36,5 @@ public class TxHandler {
         return new Transaction[1];
     }
 
+    private UTXOPool pool;
 }

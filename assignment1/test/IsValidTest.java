@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
 
 import org.junit.Test;
+import org.junit.Ignore;
 /**
  * Unit tests for {@link TxHandler#isValidTx(Transaction)}
  * <p>
@@ -40,6 +41,7 @@ public class IsValidTest {
 	}
 
 	// Test 1: test isValidTx() with valid transactions
+	@Ignore
 	@Test
 	public void testIsValidWithValidTransactions()
 			throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
@@ -61,6 +63,7 @@ public class IsValidTest {
 
 	
 	// Test 2: test isValidTx() with transactions containing signatures of incorrect data
+	@Ignore
 	@Test
 	public void testIsValidWithInvalidSignatures() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				
@@ -82,6 +85,7 @@ public class IsValidTest {
 	}
 	
 	// Test 3: test isValidTx() with transactions containing signatures using incorrect private keys
+	@Ignore
 	@Test
 	public void testIsValidSignaturesWithInvalidPrivateKeys() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				
@@ -103,6 +107,7 @@ public class IsValidTest {
 	}
 
 	// Test 4: test isValidTx() with transactions whose total output value exceeds total input value
+	@Ignore
 	@Test
 	public void testIsValidTotalOutputExceedsTotalInput() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				
@@ -145,7 +150,8 @@ public class IsValidTest {
 		
 	}
 	
-    // Test 6: test isValidTx() with transactions that claim the same UTXO multiple times
+	// Test 6: test isValidTx() with transactions that claim the same UTXO multiple times
+	@Ignore
 	@Test
 	public void testIsValidTransactionsClaimingTheSameUTXOSeveralTimes() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				
@@ -165,7 +171,8 @@ public class IsValidTest {
 		
 	}
 	
-    // Test 7: test isValidTx() with transactions that contain a negative output value
+	// Test 7: test isValidTx() with transactions that contain a negative output value
+	@Ignore
 	@Test
 	public void testIsValidTransactionsWithNegativeOutput() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				
