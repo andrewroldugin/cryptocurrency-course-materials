@@ -19,9 +19,12 @@ public class TxHandler {
      *     values; and false otherwise.
      */
     public boolean isValidTx(Transaction tx) {
-        for (Transaction.Input in : tx.getInputs()) {
+        for (int index = 0; index < tx.numInputs(); ++index) {
+            Transaction.Input in = tx.getInput(index);
             UTXO utxo = new UTXO(in.prevTxHash, in.outputIndex);
             if (!pool.contains(utxo)) return false;
+            Transaction.Output outTx = pool.getTxOutput(utxo);
+            if (!Crypto.verifySignature(outTx.address, tx.getRawDataToSign(index), in.signature)) return false;
         }
         return true;
     }
