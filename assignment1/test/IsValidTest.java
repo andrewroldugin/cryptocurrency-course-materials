@@ -150,7 +150,6 @@ public class IsValidTest {
 	}
 	
 	// Test 6: test isValidTx() with transactions that claim the same UTXO multiple times
-	@Ignore
 	@Test
 	public void testIsValidTransactionsClaimingTheSameUTXOSeveralTimes() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				

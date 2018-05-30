@@ -19,12 +19,15 @@ public class TxHandler {
      *     values; and false otherwise.
      */
     public boolean isValidTx(Transaction tx) {
+        java.util.HashSet<UTXO> used = new java.util.HashSet<UTXO>();
         for (int index = 0; index < tx.numInputs(); ++index) {
             Transaction.Input in = tx.getInput(index);
             UTXO utxo = new UTXO(in.prevTxHash, in.outputIndex);
-            if (!pool.contains(utxo)) return false;
+            if (!pool.contains(utxo) || used.contains(utxo)) return false;
+            used.add(utxo);
             Transaction.Output outTx = pool.getTxOutput(utxo);
             if (!Crypto.verifySignature(outTx.address, tx.getRawDataToSign(index), in.signature)) return false;
+            
         }
         return true;
     }
