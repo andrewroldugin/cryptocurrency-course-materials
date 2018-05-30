@@ -106,7 +106,6 @@ public class IsValidTest {
 	}
 
 	// Test 4: test isValidTx() with transactions whose total output value exceeds total input value
-	@Ignore
 	@Test
 	public void testIsValidTotalOutputExceedsTotalInput() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				
