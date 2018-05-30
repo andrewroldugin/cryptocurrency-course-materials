@@ -170,7 +170,6 @@ public class IsValidTest {
 	}
 	
 	// Test 7: test isValidTx() with transactions that contain a negative output value
-	@Ignore
 	@Test
 	public void testIsValidTransactionsWithNegativeOutput() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				

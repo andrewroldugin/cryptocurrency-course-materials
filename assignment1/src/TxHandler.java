@@ -27,7 +27,9 @@ public class TxHandler {
             used.add(utxo);
             Transaction.Output outTx = pool.getTxOutput(utxo);
             if (!Crypto.verifySignature(outTx.address, tx.getRawDataToSign(index), in.signature)) return false;
-            
+        }
+        for (Transaction.Output out : tx.getOutputs()) {
+            if (out.value <= 0) return false;
         }
         return true;
     }
