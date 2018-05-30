@@ -41,7 +41,6 @@ public class IsValidTest {
 	}
 
 	// Test 1: test isValidTx() with valid transactions
-	@Ignore
 	@Test
 	public void testIsValidWithValidTransactions()
 			throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
@@ -84,7 +83,6 @@ public class IsValidTest {
 	}
 	
 	// Test 3: test isValidTx() with transactions containing signatures using incorrect private keys
-	@Ignore
 	@Test
 	public void testIsValidSignaturesWithInvalidPrivateKeys() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 		// Create a new set of transactions for testing				
